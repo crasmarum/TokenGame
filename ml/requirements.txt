@@ -1,0 +1,7 @@
+# PyTorch: install the build matching your hardware, THEN this file.
+#   CPU only:  pip install torch --index-url https://download.pytorch.org/whl/cpu
+#   NVIDIA:    pip install torch --index-url https://download.pytorch.org/whl/cu124   (match your CUDA)
+#   Apple GPU: pip install torch      (the default wheel includes MPS)
+torch>=2.2
+numpy>=1.24
+matplotlib>=3.7

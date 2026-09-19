@@ -1,0 +1,47 @@
+# ---- Java build output ----
+out/
+bin/
+*.class
+
+# ---- Python / PyTorch (ml/) ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+models/            # saved policy checkpoints
+*.pt
+*.pth
+*.ckpt
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# ---- LaTeX build artifacts ----
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.lof
+*.lot
+*.bcf
+*.run.xml
+*.idx
+*.ilg
+*.ind
+# The compiled paper is regenerable from the .tex; uncomment to keep it out of git:
+# diagonal-token-game.pdf
+
+# ---- OS / editor cruft ----
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/
