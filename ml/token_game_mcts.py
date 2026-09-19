@@ -34,8 +34,22 @@ from typing import Dict, List, Optional, Tuple
 
 from token_game_policy import (
     greedy_high_profile, weight, random_nbit_prime, rectangle_profile, featurize,
-    load_model, pick_device,
+    load_model as _load_cnn, pick_device,
 )
+
+
+def load_model(path, device=None):
+    """Load a policy/value checkpoint, dispatching on its architecture tag.
+
+    Both nets share the same (features -> (policy, value)) contract, so the search code is
+    identical; only the constructor differs. Transformer checkpoints carry arch='transformer'.
+    """
+    import torch
+    tag = torch.load(path, map_location="cpu", weights_only=False).get("arch")
+    if tag == "transformer":
+        from token_game_transformer import load_model as _load_tf
+        return _load_tf(path, device)
+    return _load_cnn(path, device)
 
 
 # --------------------------------------------------------------------------------------
