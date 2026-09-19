@@ -21,12 +21,10 @@ src/     Java reference implementation (Step A, Step B, solver, factoring test)
 ml/      PyTorch: policy/value net (CNN + Transformer) and AlphaZero-style MCTS
 ```
 
-## Build the paper
+## Paper
 
-```bash
-cd paper
-pdflatex diagonal-token-game.tex && pdflatex diagonal-token-game.tex   # inline bibliography, two passes
-```
+The manuscript is included as [`paper/diagonal-token-game.pdf`](paper/diagonal-token-game.pdf).
+The LaTeX source is available on arXiv ("Other formats → Download source").
 
 ## Java reference solver
 
