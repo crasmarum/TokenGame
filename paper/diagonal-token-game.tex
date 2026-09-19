@@ -34,6 +34,8 @@
     \foreach \r/\c in {#1}{\fill[tgtok] (\c+0.5,-\r-0.5) circle (0.30);}
   \end{tikzpicture}}
 
+\usepackage[hidelinks]{hyperref}
+
 \title{Searching for Primes: A Neural AlphaZero Approach to a Factoring Game}
 \author{Marcel Crasmaru}
 \date{\today}
@@ -339,7 +341,7 @@ StepA(start, target):   # start = greedy-high profile, target = rectangle profil
     return moves                       # |moves| = pq - |start| <= N^2
 \end{verbatim}
 
-\subsection{Step B: seating by slides (polynomial when $R,S$ known)}\label{sec:stepB}
+\subsection{Step B: seating by slides (polynomial when \texorpdfstring{$R,S$}{R,S} known)}\label{sec:stepB}
 
 With $n^{*}$ frozen, sliding into the rectangle is a placement.  Encode the
 profile as the polynomial
@@ -416,7 +418,7 @@ the worst-case boards of a general (non-prime) split, and the quantum status of 
 taken up in Section~\ref{sec:open}.
 \end{remark}
 
-\section{A worked example: factoring $143$}\label{sec:example}
+\section{A worked example: factoring \texorpdfstring{$143$}{143}}\label{sec:example}
 
 Take $N=4$ and $M=143=11\cdot 13$, with $11=1011_2$ and $13=1101_2$. Laying $M$ on the
 board as the conserved weight $W'=143$ by the greedy-high placement
@@ -479,7 +481,8 @@ which factors the board complement $A^2-W'$, is developed in \ref{sec:hash}.)
 The reduction of the game to factoring is concrete enough to test empirically: one can train
 a neural network to imitate Step~A move by move and ask whether it ever assembles a full
 solution.\footnote{A self-contained PyTorch implementation (data generation, model, and the
-metrics below) accompanies the paper.} It does not, and \emph{why} it does not mirrors
+metrics below), the Java reference solver, and the paper source are available at
+\url{https://github.com/crasmarum/TokenGame}.} It does not, and \emph{why} it does not mirrors
 Theorem~\ref{thm:hard} exactly.
 
 \paragraph{Formulation.}
@@ -828,7 +831,7 @@ broader constraint-satisfaction toolbox.
 \appendix
 \renewcommand{\thesection}{Appendix~\Alph{section}}
 
-\section{Binary operation on weights, and the full-or-$R$ variant}\label{sec:hash}
+\section{Binary operation on weights, and the full-or-\texorpdfstring{$R$}{R} variant}\label{sec:hash}
 
 Consider the variant in which a position is \emph{final} when every column is either
 \emph{full} (the all-ones pattern $11\cdots1$, value $A:=2^{N}-1$) or equal to one common
